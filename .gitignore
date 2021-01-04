@@ -24,6 +24,7 @@ ExportedObj/
 .consulo/
 *.csproj
 *.unityproj
+*.vsconfig
 *.sln
 *.suo
 *.tmp
