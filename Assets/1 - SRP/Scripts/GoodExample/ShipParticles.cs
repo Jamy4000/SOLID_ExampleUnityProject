@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Solid.SRP
 {
+    /// <summary>
+    /// Class taking care of showing some particle effects behing the ship when moving, and showing an explosion particle effect when exploding
+    /// </summary>
     public class ShipParticles : MonoBehaviour
     {
         [SerializeField]

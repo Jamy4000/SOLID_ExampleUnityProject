@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace Solid.Presentation
 {
+    /// <summary>
+    /// Not relevant, this is just for the sake of the first presentation screen in the first scene
+    /// </summary>
     public class SwitchPanel : MonoBehaviour
     {
         [SerializeField]

@@ -2,6 +2,9 @@
 
 namespace Solid.SRP
 {
+    /// <summary>
+    /// Class taking care of moving the ship GameObject by accessing the values provided in the ShipInput system
+    /// </summary>
     [RequireComponent(typeof(ShipInput))]
     public class ShipEngine : MonoBehaviour
     {

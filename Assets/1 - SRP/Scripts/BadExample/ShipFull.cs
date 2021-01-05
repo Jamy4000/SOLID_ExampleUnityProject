@@ -2,6 +2,10 @@
 
 namespace Solid.Unoptimized
 {
+    /// <summary>
+    /// This class obviously doesn't respect the SRP as everything is done in one single place.
+    /// The goal of the next step will be to separate this class as much as we can.
+    /// </summary>
     public class ShipFull : MonoBehaviour
     {
         [SerializeField]

@@ -2,10 +2,13 @@
 
 namespace Solid.OCP
 {
-    public class Missile : MonoBehaviour
+    /// <summary>
+    /// A simple type of projectile that follow a specified target 
+    /// </summary>
+    public class Missile : Projectile
     {
         [SerializeField]
-        private float _missileSpeed = 1.0f;
+        private float _missileSpeed = 5.0f;
 
         private Transform _target;
 

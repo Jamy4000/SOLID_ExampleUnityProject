@@ -2,6 +2,10 @@
 
 namespace Solid.OCP
 {
+    /// <summary>
+    /// This will be use by the GoodWeaponSystem to launch a auto-guided missile. 
+    /// The only thing we need to do is to make this class extend the ILauncher interface, and place it on the same GameObject as the GoodWeaponSystem.
+    /// </summary>
     public class MissileLauncher : MonoBehaviour, ILauncher
     {
         [SerializeField]

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Solid.SRP
 {
+    /// <summary>
+    /// Class taking care of the health of the ship, and checking if the ship need to be destroy after taking too much damages
+    /// </summary>
     public class ShipHealth : MonoBehaviour
     {
         [SerializeField]

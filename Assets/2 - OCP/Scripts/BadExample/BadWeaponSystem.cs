@@ -2,6 +2,10 @@
 
 namespace Solid.OCP
 {
+    /// <summary>
+    /// This class doesn't respect the Open-Closed Principle, as we will have to modify this pre-existing code everytime we want to add a new type of ammunition.
+    /// EG, This class is not open for extension, and is not closed for modification.
+    /// </summary>
     public class BadWeaponSystem : MonoBehaviour
     {
         [SerializeField]
@@ -23,6 +27,7 @@ namespace Solid.OCP
 
         private void FireWeapon()
         {
+            // This is where we break the Open-Closes Principle
             if (_bulletPrefab != null)
             {
                 Bullet bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);

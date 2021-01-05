@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Solid.SRP
 {
+    /// <summary>
+    /// Class taking care of capturing the inputs for the ship, and assign the values to the fields / fire events when applicable
+    /// </summary>
     public class ShipInput : MonoBehaviour
     {
         public float Horizontal { get; private set; }

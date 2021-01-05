@@ -2,6 +2,9 @@
 
 namespace Solid.SRP
 {
+    /// <summary>
+    /// Class taking care of launching a projectile when the OnFire event raised by the ShipInput class is called
+    /// </summary>
     [RequireComponent(typeof(ShipInput))]
     public class ProjectileLauncher : MonoBehaviour
     {

@@ -2,8 +2,11 @@
 
 namespace Solid.OCP
 {
+    /// <summary>
+    /// A simple type of projectile that just go straigt forward
+    /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class Bullet : MonoBehaviour
+    public class Bullet : Projectile
     {
         [SerializeField]
         private float _fireForce = 300.0f;
