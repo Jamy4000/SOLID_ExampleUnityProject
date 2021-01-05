@@ -2,7 +2,10 @@
 
 namespace Solid.ISP
 {
-    public class BadNPC : MonoBehaviour, IHaveStats
+    /// <summary>
+    /// This example is breaking the Interface Segregation Principle for the reason provided below in the different summaries
+    /// </summary>
+    public class BadIspNPC : MonoBehaviour, IHaveStats
     {
         [SerializeField]
         private int _maxHealth;

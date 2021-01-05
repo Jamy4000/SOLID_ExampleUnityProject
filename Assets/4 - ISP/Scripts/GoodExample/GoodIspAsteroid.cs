@@ -2,7 +2,10 @@
 
 namespace Solid.ISP
 {
-    public class GoodAsteroid : MonoBehaviour, IHaveSpeed, IDealDamage
+    /// <summary>
+    /// The following script follow the Interface Segregation Principle, as it only use the interfaces, and, by extension, the fields and methods it needs.
+    /// </summary>
+    public class GoodIspAsteroid : MonoBehaviour, IHaveSpeed, IDealDamage
     {
         [SerializeField]
         private int _baseDamageValue;

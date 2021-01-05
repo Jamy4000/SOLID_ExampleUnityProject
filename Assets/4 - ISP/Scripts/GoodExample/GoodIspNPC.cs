@@ -2,10 +2,11 @@
 
 namespace Solid.ISP
 {
-    public class GoodAlien : MonoBehaviour, IHaveSpeed, IHaveHealth, IDealDamage
+    /// <summary>
+    /// The following script follow the Interface Segregation Principle, as it only use the interfaces, and, by extension, the fields and methods it needs.
+    /// </summary>
+    public class GoodIspNPC : MonoBehaviour, IHaveHealth, IHaveSpeed
     {
-        [SerializeField]
-        private int _damage;
         [SerializeField]
         private int _maxHealth;
 
@@ -15,14 +16,7 @@ namespace Solid.ISP
             return Health;
         }
 
-        public void DealDamage(IHaveHealth target)
-        {
-            target.ReduceHealth(Damage);
-        }
-
         public float CurrentSpeed { get; set; }
-
-        public int Damage => _damage;
 
         public int HealthMax => _maxHealth;
 

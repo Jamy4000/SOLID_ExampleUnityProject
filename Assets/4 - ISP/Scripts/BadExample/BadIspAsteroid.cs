@@ -2,7 +2,10 @@
 
 namespace Solid.ISP
 {
-    public class BadAsteroid : MonoBehaviour, IHaveStats
+    /// <summary>
+    /// This example is breaking the Interface Segregation Principle for the reason provided below in the different summaries
+    /// </summary>
+    public class BadIspAsteroid : MonoBehaviour, IHaveStats
     {
         [SerializeField]
         private float _baseDamageValue;

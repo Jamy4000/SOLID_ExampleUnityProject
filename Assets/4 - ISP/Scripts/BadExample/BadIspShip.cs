@@ -2,7 +2,11 @@
 
 namespace Solid.ISP
 {
-    public class GoodShip : MonoBehaviour, IHaveSpeed, IDealDamage, IHaveHealth, IHaveLevel, IHaveShield
+    /// <summary>
+    /// This first example is the perfect one to show how the IHaveStats interface wanted to be used.
+    /// All fields and methods are used, meaning that we do not break the Interface Segregation Principle here.
+    /// </summary>
+    public class BadIspShip : MonoBehaviour, IHaveStats
     {
         [SerializeField]
         private int _damage;
@@ -11,6 +15,7 @@ namespace Solid.ISP
 
         public void LevelUp(int newDamage, int newHealth)
         {
+            CurrentLevel++;
             _maxHealth = newHealth;
             Health = newHealth;
             _damage = newDamage;
@@ -22,7 +27,7 @@ namespace Solid.ISP
             return Health;
         }
 
-        public void DealDamage(IHaveHealth target)
+        public void DealDamage(IHaveStats target)
         {
             target.ReduceHealth(Damage);
         }

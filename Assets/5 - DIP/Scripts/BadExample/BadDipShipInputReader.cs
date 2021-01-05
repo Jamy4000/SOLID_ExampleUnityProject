@@ -2,7 +2,7 @@
 
 namespace Solid.DIP
 {
-    public class BadShipInputReader
+    public class BadDipShipInputReader
     {
         public float Rotation { get; private set; }
 

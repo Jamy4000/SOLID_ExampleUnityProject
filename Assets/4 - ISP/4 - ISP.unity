@@ -180,7 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613399863836867345, guid: ba47a50ad56bfb64d9350bd9da1ee496, type: 3}
       propertyPath: m_text
-      value: Interface Segragation Principle
+      value: Interface Segregation Principle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613399863836867345, guid: ba47a50ad56bfb64d9350bd9da1ee496, type: 3}
+      propertyPath: m_fontSize
+      value: 56.3
       objectReference: {fileID: 0}
     - target: {fileID: 4613399864735100145, guid: ba47a50ad56bfb64d9350bd9da1ee496, type: 3}
       propertyPath: m_text

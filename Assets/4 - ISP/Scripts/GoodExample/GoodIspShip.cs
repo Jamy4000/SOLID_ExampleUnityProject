@@ -2,7 +2,10 @@
 
 namespace Solid.ISP
 {
-    public class BadShip : MonoBehaviour, IHaveStats
+    /// <summary>
+    /// The following script follow the Interface Segregation Principle, as it only use the interfaces, and, by extension, the fields and methods it needs.
+    /// </summary>
+    public class GoodIspShip : MonoBehaviour, IHaveSpeed, IDealDamage, IHaveHealth, IHaveLevel, IHaveShield
     {
         [SerializeField]
         private int _damage;
@@ -11,7 +14,6 @@ namespace Solid.ISP
 
         public void LevelUp(int newDamage, int newHealth)
         {
-            CurrentLevel++;
             _maxHealth = newHealth;
             Health = newHealth;
             _damage = newDamage;
@@ -23,7 +25,7 @@ namespace Solid.ISP
             return Health;
         }
 
-        public void DealDamage(IHaveStats target)
+        public void DealDamage(IHaveHealth target)
         {
             target.ReduceHealth(Damage);
         }
