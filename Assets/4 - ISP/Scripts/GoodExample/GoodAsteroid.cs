@@ -7,7 +7,7 @@ namespace Solid.ISP
         [SerializeField]
         private int _baseDamageValue;
 
-        public void DealDamage(IHaveStats target)
+        public void DealDamage(IHaveHealth target)
         {
             target.ReduceHealth(Damage);
         }

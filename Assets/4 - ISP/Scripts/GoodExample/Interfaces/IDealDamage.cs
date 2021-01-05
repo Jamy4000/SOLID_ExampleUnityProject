@@ -3,6 +3,6 @@
     public interface IDealDamage
     {
         int Damage { get; }
-        void DealDamage(IHaveStats target);
+        void DealDamage(IHaveHealth target);
     }
 }
