@@ -5,7 +5,7 @@ namespace Solid.ISP
     /// <summary>
     /// The following script follow the Interface Segregation Principle, as it only use the interfaces, and, by extension, the fields and methods it needs.
     /// </summary>
-    public class GoodIspShip : MonoBehaviour, IHaveSpeed, IDealDamage, IHaveHealth, IHaveLevel, IHaveShield
+    public class GoodIspPlayerShip : MonoBehaviour, IHaveSpeed, IDealDamage, IHaveHealth, IHaveLevel, IHaveShield
     {
         [SerializeField]
         private int _damage;

@@ -6,7 +6,7 @@ namespace Solid.ISP
     /// This first example is the perfect one to show how the IHaveStats interface wanted to be used.
     /// All fields and methods are used, meaning that we do not break the Interface Segregation Principle here.
     /// </summary>
-    public class BadIspShip : MonoBehaviour, IHaveStats
+    public class BadIspPlayerShip : MonoBehaviour, IHaveStats
     {
         [SerializeField]
         private int _damage;

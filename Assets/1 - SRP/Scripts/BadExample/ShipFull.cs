@@ -62,17 +62,7 @@ namespace Solid.Unoptimized
             spawnedProjectile.AddForce(transform.forward * _fireForce);
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            Projectile projectile = collision.collider.GetComponent<Projectile>();
-            if (projectile != null && !projectile.IsPlayerProjectile)
-            {
-                TakeDamage(projectile.Damage);
-                Destroy(projectile.gameObject);
-            }
-        }
-
-        private void TakeDamage(int damage)
+        public void TakeDamage(int damage)
         {
             _currentHealth -= damage;
             if (_currentHealth <= 0)
