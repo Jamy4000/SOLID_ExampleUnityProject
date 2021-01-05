@@ -1,0 +1,43 @@
+﻿using UnityEngine;
+
+namespace Solid.ISP
+{
+    public class BadShip : MonoBehaviour, IHaveStats
+    {
+        [SerializeField]
+        private int _damage;
+        [SerializeField]
+        private int _maxHealth;
+
+        public void LevelUp(int newDamage, int newHealth)
+        {
+            CurrentLevel++;
+            _maxHealth = newHealth;
+            Health = newHealth;
+            _damage = newDamage;
+        }
+
+        public int ReduceHealth(int amount)
+        {
+            Health -= amount;
+            return Health;
+        }
+
+        public void DealDamage(IHaveStats target)
+        {
+            target.ReduceHealth(Damage);
+        }
+
+        public float CurrentSpeed { get; set; }
+
+        public int Damage => _damage * CurrentLevel;
+
+        public int HealthMax => _maxHealth;
+
+        public int Health { get; set; }
+
+        public bool ShieldIsOn { get; set; }
+
+        public int CurrentLevel { get; set; } = 1;
+    }
+}
