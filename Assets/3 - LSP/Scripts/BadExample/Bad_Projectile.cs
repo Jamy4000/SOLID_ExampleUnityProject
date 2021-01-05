@@ -2,29 +2,33 @@
 
 namespace Solid.LSP
 {
-    [RequireComponent(typeof(Projectile))]
-    public class Bad_ShipDamageDealer : MonoBehaviour
+    public class Bad_Projectile : MonoBehaviour
     {
-        private Projectile _projectile;
+        [SerializeField]
+        private int _damage = 5;
+        [SerializeField]
+        private float _timeBeforeDestroy = 5.0f;
+        [SerializeField]
+        private bool _isPlayerProjectile = true;
 
-        private void Awake()
+        private void Start()
         {
-            _projectile = GetComponent<Projectile>();
+            Destroy(gameObject, _timeBeforeDestroy);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             Bad_ShipHealth ship = collision.collider.GetComponent<Bad_ShipHealth>();
-            if (ship != null && ShouldTakeDamage(_projectile.IsPlayerProjectile, ship.IsPlayerShip))
+            if (ShouldSendDamage(ship))
             {
                 SendDamages(ship);
-                Destroy(ship.gameObject);
+                Destroy(gameObject);
             }
         }
 
         private void SendDamages(Bad_ShipHealth ship)
         {
-            int damage = _projectile.Damage;
+            int damage = _damage;
 
             if (ship is Bad_PlayerShipHealth)
                 damage *= 3;
@@ -36,9 +40,9 @@ namespace Solid.LSP
             ship.TakeDamage(damage);
         }
 
-        private bool ShouldTakeDamage(bool isPlayerProjectile, bool isPlayerShip)
+        private bool ShouldSendDamage(Bad_ShipHealth ship)
         {
-            return (isPlayerProjectile && !isPlayerShip) || (!isPlayerProjectile && isPlayerShip);
+            return ship != null && ((_isPlayerProjectile && !ship.IsPlayerShip) || (!_isPlayerProjectile && ship.IsPlayerShip));
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Solid.SRP
         [SerializeField]
         private bool _isPlayerShip = true;
 
+        public bool IsPlayerShip { get { return _isPlayerShip; } }
+
         private int _currentHealth;
 
         public event Action OnDie = delegate { };
@@ -19,22 +21,7 @@ namespace Solid.SRP
             _currentHealth = _maxHealth;
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            Projectile projectile = collision.collider.GetComponent<Projectile>();
-            if (projectile != null && ShouldTakeDamage(projectile.IsPlayerProjectile))
-            {
-                TakeDamage(projectile.Damage);
-                Destroy(projectile.gameObject);
-            }
-        }
-
-        private bool ShouldTakeDamage(bool isPlayerProjectile)
-        {
-            return (isPlayerProjectile && !_isPlayerShip) || (!isPlayerProjectile && _isPlayerShip);
-        }
-
-        private void TakeDamage(int damage)
+        public void TakeDamage(int damage)
         {
             _currentHealth -= damage;
             if (_currentHealth <= 0)

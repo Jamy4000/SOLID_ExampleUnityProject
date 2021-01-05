@@ -8,7 +8,7 @@ namespace Solid.SRP
         [SerializeField]
         private float _speed = 1.0f;
         [SerializeField]
-        private float _turnSpeed = 5.0f;
+        private float _turnSpeed = 70.0f;
 
         private ShipInput _shipInput;
 

@@ -61,7 +61,7 @@ namespace Solid.Unoptimized
         private void OnCollisionEnter(Collision collision)
         {
             Projectile projectile = collision.collider.GetComponent<Projectile>();
-            if (projectile != null)
+            if (projectile != null && !projectile.IsPlayerProjectile)
             {
                 TakeDamage(projectile.Damage);
                 Destroy(projectile.gameObject);
