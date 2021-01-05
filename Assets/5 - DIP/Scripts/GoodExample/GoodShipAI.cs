@@ -14,8 +14,8 @@ namespace Solid.DIP
 
         public void UpdateInput()
         {
-            Rotation = Random.Range(-1, 1);
-            Thrust = Random.Range(-1, 1);
+            Rotation = Random.Range(-1.0f, 1.0f);
+            Thrust = Random.Range(-1.0f, 1.0f);
         }
     }
 }

@@ -3,17 +3,16 @@ using UnityEngine;
 
 namespace Solid.LSP
 {
+    /// <summary>
+    /// We can see in this class that the BadFlyingObject abstract class does fit for this specific object, as a spaceship can indeed move, rotate, and accelerate
+    /// </summary>
     [RequireComponent(typeof(ShipInput))]
     public class BadLspShip : BadFlyingObject
     {
         [SerializeField]
         private float _speed = 1.0f;
         [SerializeField]
-        private float _accelerationSpeed = 2.0f;
-        [SerializeField]
         private float _turnSpeed = 70.0f;
-
-        private float _accelerationRate;
 
         private ShipInput _shipInput;
 
@@ -22,29 +21,19 @@ namespace Solid.LSP
             _shipInput = GetComponent<ShipInput>();
         }
 
-        private void Update()
+        protected override void MoveInSpace()
         {
-            Accelerate();
-            MoveInSpace();
-            RotateInSpace();
+            transform.position += Time.deltaTime * (_shipInput.Vertical * _currentAccelerationRate) * transform.forward * _speed;
         }
 
-        public override void Accelerate()
-        {
-            if (_shipInput.Vertical != 0.0f)
-                _accelerationRate = Mathf.Clamp01((_accelerationRate + Time.deltaTime) * _accelerationSpeed); 
-            else
-                _accelerationRate = Mathf.Clamp01((_accelerationRate - Time.deltaTime) * _accelerationSpeed);
-        }
-
-        public override void MoveInSpace()
-        {
-            transform.position += Time.deltaTime * (_shipInput.Vertical * _accelerationRate) * transform.forward * _speed;
-        }
-
-        public override void RotateInSpace()
+        protected override void RotateInSpace()
         {
             transform.Rotate(transform.up * _shipInput.Horizontal * _turnSpeed * Time.deltaTime);
+        }
+
+        protected override void SetIsAccelerating()
+        {
+            _isAccelerating = _shipInput.Vertical != 0;
         }
     }
 }
